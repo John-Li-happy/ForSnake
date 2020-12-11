@@ -28,8 +28,8 @@
     // random position
     int lowerColumeBound = 4;
     int upperColumeBound = 15;
-    int lowerRowBound = 4;
-    int upperRowBound = 32;
+    int lowerRowBound = 9;
+    int upperRowBound = 28;
     int randomColumeStarter = lowerColumeBound + arc4random_uniform(upperColumeBound - lowerColumeBound + 1);
     int randomRowStarter = lowerRowBound + arc4random_uniform(upperRowBound - lowerRowBound + 1);
     self.matrix[randomRowStarter][randomColumeStarter] = @1;
@@ -156,7 +156,6 @@
                 handler(NO);
                 return;
             } else {
-                
                 self.matrix[[[[self.snakeArray objectAtIndex:0] objectAtIndex:0] intValue]][[[[self.snakeArray objectAtIndex:0] objectAtIndex:1] intValue] - 1] = @1;
 
                 int newRowCounter = [[[self.snakeArray objectAtIndex:0] objectAtIndex:1] intValue] - 1;

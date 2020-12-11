@@ -11,7 +11,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic) ViewModel *viewModel;
+@property (nonatomic) ViewModel *viewModel;
 @property (nonatomic) BOOL finishFlag;
 @property (nonatomic) BOOL turnFlag;
 
@@ -42,7 +42,7 @@
                 self.title = [NSString stringWithFormat:@"Score: %ld", (long)self.viewModel.snakeArray.count];
                 self.turnFlag = YES;
             } else {
-                self.finishFlag = NO;
+                self.finishFlag = YES;
                 NSString *message = [NSString stringWithFormat:@"Your highest score is  %ld", (long)self.viewModel.snakeArray.count];
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Game OVer" message:message preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *action = [UIAlertAction actionWithTitle:@"Restart" style:UIAlertActionStyleDefault handler:Nil];
@@ -59,9 +59,20 @@
 }
 
 - (void)basicUISettings {
+    // flag settings
     self.collectionView.scrollEnabled = NO;
     self.turnFlag = NO;
+    // background set
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
+    imageView.image = [UIImage imageNamed:@"woodBackGround"];
+    imageView.layer.zPosition = -99;
+    [self.view addSubview:imageView];
     
+    self.view.layer.borderWidth = 10;
+    self.view.layer.borderColor = UIColor.blackColor.CGColor;
+    self.view.layer.cornerRadius = 10;
+    
+    // recognizers
     UISwipeGestureRecognizer *top = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(topHandler)];
     top.direction = UISwipeGestureRecognizerDirectionUp;
     [self.view addGestureRecognizer:top];
@@ -86,7 +97,6 @@
 
 - (void)botHandler{
     bool correctDirection = self.viewModel.direction == 2 || self.viewModel.direction == 3;
-
     if (correctDirection && self.turnFlag) {
         self.viewModel.direction = 1;
         self.turnFlag = NO;
@@ -95,7 +105,6 @@
 
 - (void)leftHandler{
     bool correctDirection = self.viewModel.direction == 0 || self.viewModel.direction == 1;
-
     if (correctDirection && self.turnFlag) {
         self.viewModel.direction = 2;
         self.turnFlag = NO;
@@ -104,7 +113,6 @@
 
 - (void)rightHandler{
     bool correctDirection = self.viewModel.direction == 0 || self.viewModel.direction == 1;
-
     if (correctDirection && self.turnFlag) {
         self.viewModel.direction = 3;
         self.turnFlag = NO;
@@ -121,11 +129,13 @@
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionViewCell" forIndexPath:indexPath];
 
     if ([self.viewModel.matrix[indexPath.row / 20][indexPath.row % 20]  isEqual: @0]) {
-        cell.backgroundColor = UIColor.greenColor;
+        cell.backgroundColor = UIColor.clearColor;
     } else if ([self.viewModel.matrix[indexPath.row / 20][indexPath.row % 20]  isEqual: @1]) {
-        cell.backgroundColor = UIColor.blackColor;
+        cell.layer.cornerRadius = 5;
+        cell.backgroundColor = UIColor.blueColor;
     } else if ([self.viewModel.matrix[indexPath.row / 20][indexPath.row % 20]  isEqual: @2]){
         cell.backgroundColor = UIColor.redColor;
+        cell.layer.cornerRadius = 5;
     }
     return cell;
 }
