@@ -14,6 +14,9 @@
 		F23140E32581AFF20043725B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F23140E22581AFF20043725B /* Assets.xcassets */; };
 		F23140E62581AFF20043725B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F23140E42581AFF20043725B /* LaunchScreen.storyboard */; };
 		F23140E92581AFF20043725B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F23140E82581AFF20043725B /* main.m */; };
+		F23140F32581B0120043725B /* ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F23140F22581B0120043725B /* ViewModel.m */; };
+		F23140FA2581B6BF0043725B /* CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F23140F92581B6BF0043725B /* CollectionViewCell.m */; };
+		F295B05D2581CD680029EB9A /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = F295B05C2581CD680029EB9A /* Model.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,12 @@
 		F23140E52581AFF20043725B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F23140E72581AFF20043725B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F23140E82581AFF20043725B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F23140F22581B0120043725B /* ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewModel.m; sourceTree = "<group>"; };
+		F23140F62581B01C0043725B /* ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewModel.h; sourceTree = "<group>"; };
+		F23140F92581B6BF0043725B /* CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewCell.m; sourceTree = "<group>"; };
+		F23140FD2581B6C70043725B /* CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewCell.h; sourceTree = "<group>"; };
+		F295B05A2581CD570029EB9A /* Model.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
+		F295B05C2581CD680029EB9A /* Model.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,12 +70,14 @@
 		F23140D52581AFF10043725B /* ForSnake */ = {
 			isa = PBXGroup;
 			children = (
+				F295B05B2581CD5C0029EB9A /* Model */,
+				F23140F82581B6AC0043725B /* View */,
+				F23140F12581AFFD0043725B /* ViewModel */,
+				F23140F02581AFF70043725B /* ViewController */,
 				F23140D62581AFF10043725B /* AppDelegate.h */,
 				F23140D72581AFF10043725B /* AppDelegate.m */,
 				F23140D92581AFF10043725B /* SceneDelegate.h */,
 				F23140DA2581AFF10043725B /* SceneDelegate.m */,
-				F23140DC2581AFF10043725B /* ViewController.h */,
-				F23140DD2581AFF10043725B /* ViewController.m */,
 				F23140DF2581AFF10043725B /* Main.storyboard */,
 				F23140E22581AFF20043725B /* Assets.xcassets */,
 				F23140E42581AFF20043725B /* LaunchScreen.storyboard */,
@@ -74,6 +85,42 @@
 				F23140E82581AFF20043725B /* main.m */,
 			);
 			path = ForSnake;
+			sourceTree = "<group>";
+		};
+		F23140F02581AFF70043725B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F23140DC2581AFF10043725B /* ViewController.h */,
+				F23140DD2581AFF10043725B /* ViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F23140F12581AFFD0043725B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				F23140F62581B01C0043725B /* ViewModel.h */,
+				F23140F22581B0120043725B /* ViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F23140F82581B6AC0043725B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F23140FD2581B6C70043725B /* CollectionViewCell.h */,
+				F23140F92581B6BF0043725B /* CollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F295B05B2581CD5C0029EB9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F295B05A2581CD570029EB9A /* Model.h */,
+				F295B05C2581CD680029EB9A /* Model.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F23140FA2581B6BF0043725B /* CollectionViewCell.m in Sources */,
 				F23140DE2581AFF10043725B /* ViewController.m in Sources */,
 				F23140D82581AFF10043725B /* AppDelegate.m in Sources */,
+				F23140F32581B0120043725B /* ViewModel.m in Sources */,
+				F295B05D2581CD680029EB9A /* Model.m in Sources */,
 				F23140E92581AFF20043725B /* main.m in Sources */,
 				F23140DB2581AFF10043725B /* SceneDelegate.m in Sources */,
 			);
