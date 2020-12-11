@@ -63,14 +63,8 @@
     self.collectionView.scrollEnabled = NO;
     self.turnFlag = NO;
     // background set
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
-    imageView.image = [UIImage imageNamed:@"woodBackGround"];
-    imageView.layer.zPosition = -99;
-    [self.view addSubview:imageView];
-    
     self.view.layer.borderWidth = 10;
     self.view.layer.borderColor = UIColor.blackColor.CGColor;
-    self.view.layer.cornerRadius = 10;
     
     // recognizers
     UISwipeGestureRecognizer *top = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(topHandler)];
